@@ -1,14 +1,15 @@
-"use-client"
+"use client"
 import React from 'react'
-import ResponsiveNav from './Navbar/ResponsiveNav'
 import Hero from './Hero/Hero'
+import About from './About/About'
 
 
 function Home() {
     return (
-        <div className=' overflow-hidden h-[500]'>
-            <ResponsiveNav />
+        <div className=' overflow-hidden  '>
+
             <Hero />
+            <About />
         </div>
     )
 }

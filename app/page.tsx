@@ -1,9 +1,14 @@
 import Home from "@/Components/Home/Home";
+import ResponsiveNav from "@/Components/Home/Navbar/ResponsiveNav";
 
 const HomePage = () => {
   return (
 
-    <Home />
+    <div>
+      <ResponsiveNav />
+      <Home />
+
+    </div>
 
   );
 }

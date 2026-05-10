@@ -1,5 +1,9 @@
 "use-client"
+import { Button } from '@/Components/ui/button';
+import { Download } from 'lucide-react';
 import React from 'react'
+import { FaFolderOpen } from 'react-icons/fa';
+import { RxButton } from 'react-icons/rx';
 import { TypeAnimation } from 'react-type-animation';
 
 const Hero = () => {
@@ -38,6 +42,30 @@ const Hero = () => {
                         className='font-mono'
                     />
                 </div>
+                {/* Description*/}
+                <p className='text-lg text-muted-foreground dark:text-gray-200 mx-w-2xl mx-auto mb-10'>
+                    Frontend developer specializing in React, focused on scalable and user-centric applications.<br />
+                    Expanding into Next.js & TypeScript with real-world experience and proven results.
+
+                </p>
+                {/*Buttons */}
+                <div className='flex flex-col sm:flex-row gap-4 justify-center'>
+
+                    <Button size={"lg"} asChild className="w-fit mx-auto sm:mx-8">
+                        <a href="#">
+                            <FaFolderOpen className="w-5 h-5 " />
+                            View Projects
+                        </a>
+                    </Button>
+                    <Button size={"lg"} asChild className="w-fit mx-auto sm:mx-8">
+                        <a href="#">
+                            <Download className="w-5 h-5 " />
+                            Download CV
+                        </a>
+                    </Button>
+
+                </div>
+
             </div>
 
         </div>
