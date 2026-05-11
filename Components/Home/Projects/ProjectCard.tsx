@@ -49,7 +49,7 @@ const ProjectCard = ({ description, title, image, techStack, demoUrl, githubUrl 
                         <Button asChild variant={"outline"} size={"sm"} className='flex-1'>
                             <a href={githubUrl} target='_blank' rel='noopener noreferrer'>
                                 <FaGithub className='w-4 h-4 mr-2' />
-                                Live Demo
+                                Github
                             </a>
                         </Button>
                     )}

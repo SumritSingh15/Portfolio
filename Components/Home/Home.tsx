@@ -4,6 +4,7 @@ import Hero from './Hero/Hero'
 import About from './About/About'
 import Skills from './Skills/Skills'
 import Projects from './Projects/Projects'
+import Experience from './Experience/Experience'
 
 
 function Home() {
@@ -14,6 +15,7 @@ function Home() {
             <About />
             <Skills />
             <Projects />
+            <Experience />
         </div>
     )
 }
