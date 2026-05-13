@@ -41,14 +41,7 @@ const Experience = () => {
                                     <p className='text-muted-foreground text-sm mb-4'>
                                         {item.description}
                                     </p>
-                                    <div className='flex flex-wrap gap-2'>
-                                        {item.technologies.map((tech) => {
-                                            return (
-                                                <span key={tech} className='text-xs px-2 py-1 rounded-md bg-indigo-500 text-white'>
-                                                    {tech}
-                                                </span>
-                                            )
-                                        })} </div>
+
                                 </div>
                             </div>
 

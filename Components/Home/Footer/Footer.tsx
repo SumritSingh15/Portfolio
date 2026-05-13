@@ -29,7 +29,7 @@ const Footer = () => {
                 {/* Social Icons */}
                 <div className="flex items-center gap-4">
                     <Link
-                        href="https://github.com"
+                        href="https://github.com/SumritSingh15"
                         target="_blank"
                         className="w-10 h-10 rounded-lg bg-white/5 hover:bg-blue-500 transition-all duration-300 flex items-center justify-center"
                     >
@@ -37,23 +37,17 @@ const Footer = () => {
                     </Link>
 
                     <Link
-                        href="https://linkedin.com"
+                        href="https://www.linkedin.com/in/sumrit-singh-4bb6a627a/"
                         target="_blank"
                         className="w-10 h-10 rounded-lg bg-white/5 hover:bg-blue-500 transition-all duration-300 flex items-center justify-center"
                     >
                         <LiaLinkedin size={18} />
                     </Link>
 
-                    <Link
-                        href="https://twitter.com"
-                        target="_blank"
-                        className="w-10 h-10 rounded-lg bg-white/5 hover:bg-blue-500 transition-all duration-300 flex items-center justify-center"
-                    >
-                        <BsTwitterX size={18} />
-                    </Link>
+
 
                     <Link
-                        href="mailto:yourmail@gmail.com"
+                        href="mailto:sumrit578singh@gmail.com"
                         className="w-10 h-10 rounded-lg bg-white/5 hover:bg-blue-500 transition-all duration-300 flex items-center justify-center"
                     >
                         <Mail size={18} />
@@ -62,8 +56,8 @@ const Footer = () => {
 
                 {/* Credit */}
                 <p className="text-sm text-gray-300">
-                    Made with{" "}
-                    <span className="text-red-500">❤</span> by Your Name
+                    Build by Sumrit Singh.
+                    <span className="text-red-500">❤</span>
                 </p>
             </div>
 
