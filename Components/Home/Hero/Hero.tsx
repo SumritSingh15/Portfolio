@@ -7,6 +7,20 @@ import { RxButton } from 'react-icons/rx';
 import { TypeAnimation } from 'react-type-animation';
 
 const Hero = () => {
+    const scrolltoprojects = () => {
+        const projectsection = document.getElementById("projects");
+        if (projectsection) {
+            projectsection.scrollIntoView({
+                behavior: "smooth",
+            });
+        }
+    }
+    const downloadCv = () => {
+        const link = document.createElement("a");
+        link.href = "./resume-Sumrit_Singh.pdf";
+        link.download = "resume-Sumrit_Singh.pdf";
+        link.click();
+    };
     return (
         <div className="relative min-h-screen bg-[radial-gradient(circle_476px_at_54.8%_51.5%,rgba(168,229,253,1)_0%,
   rgba(244,244,254,1)_42.3%,rgba(244,244,254,1)_100.2%)] flex items-center justify-center overflow-hidden
@@ -51,13 +65,13 @@ const Hero = () => {
                 {/*Buttons */}
                 <div className='flex flex-col sm:flex-row gap-4 justify-center'>
 
-                    <Button size={"lg"} asChild className="w-fit mx-auto sm:mx-8">
+                    <Button size={"lg"} asChild className="w-fit mx-auto sm:mx-8" onClick={scrolltoprojects}>
                         <a href="#">
                             <FaFolderOpen className="w-5 h-5 " />
                             View Projects
                         </a>
                     </Button>
-                    <Button size={"lg"} asChild className="w-fit mx-auto sm:mx-8">
+                    <Button size={"lg"} asChild className="w-fit mx-auto sm:mx-8" onClick={downloadCv}>
                         <a href="#">
                             <Download className="w-5 h-5 " />
                             Download CV

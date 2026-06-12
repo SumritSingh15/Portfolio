@@ -49,10 +49,12 @@ const Nav = ({ openNav }: Props) => {
                         href="#_"
                         className='relative z-20 inline-flex items-center px-6 sm:px-8 py-3 font-bold text-white transition-all duration-300 bg-indigo-600 rounded-md group'
                     >
-                        <span className='flex items-center space-x-2 text-sm'>
-                            <FiDownload className='w-4 h-4' />
-                            <span>Download CV</span>
-                        </span>
+                        <button onClick={() => window.open("./resume-Sumrit_Singh.pdf", "blank")}>
+                            <span className='flex items-center space-x-2 text-sm'>
+                                <FiDownload className='w-4 h-4' />
+                                <span>View Resume</span>
+                            </span>
+                        </button>
                     </a>
 
                     <ThemeToggler />
