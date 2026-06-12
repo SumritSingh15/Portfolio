@@ -3,10 +3,84 @@ import { Button } from '@/Components/ui/button'
 import { Input } from '@/Components/ui/input'
 import { Textarea } from '@/Components/ui/textarea'
 import { contactInfo, socialLinks } from '@/data'
+import { error } from 'console'
 import { DivideCircle, Send, Target } from 'lucide-react'
-import React from 'react'
+import React, { use, useState } from 'react'
 
 const Contact = () => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [subject, setSubject] = useState("");
+    const [message, setMessage] = useState("");
+
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState("");
+
+    const [progress, setProgress] = useState(0);
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        setError("");
+
+        if (
+            !name.trim() ||
+            !email.trim() ||
+            !subject.trim() ||
+            !message.trim()
+        ) {
+            setError("Please fill all fields");
+            return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+            setError("Please enter a valid email");
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            // fake API call
+            await new Promise((resolve) =>
+                setTimeout(resolve, 2000)
+            );
+
+            setSuccess(true);
+
+            setName("");
+            setEmail("");
+            setSubject("");
+            setMessage("");
+
+            setProgress(0);
+
+            let value = 0;
+
+            const interval = setInterval(() => {
+                value += 2;
+
+                setProgress(value);
+
+                if (value >= 100) {
+                    clearInterval(interval);
+
+                    setTimeout(() => {
+                        setSuccess(false);
+                        setProgress(0);
+                    }, 500);
+                }
+            }, 20);
+        } catch {
+            setError("Something went wrong");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <div className='py-16 bg-gray-100 dark:bg-gray-950'>
             <SectionHeading title_1='Get In' title_2='Touch' description="have a project in mind or just want to say hi? I'd love to hear form you" />
@@ -51,37 +125,58 @@ const Contact = () => {
                     </div>
                     {/*contact form */}
                     <div>
-                        <form className='bg-white dark:bg-gray-800 rounded-2xl p-8 space-y-8'>
-                            <div className='grid sm:grid-cols-2 gap-4'>
-                                <div className='space-y-2'>
-                                    <label htmlFor='name' className='text-sm font-medium'>
+                        <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 rounded-2xl p-8 space-y-8">
+                            <div className="grid sm:grid-cols-2 gap-4">
+                                <div className="space-y-2">
+                                    <label htmlFor="name" className="text-sm font-medium">
                                         Name
                                     </label>
-                                    <Input id='name' name='name' placeholder='John Smith' required className='bg-gray-100' />
+                                    <Input id="name" name="name" placeholder="John Smith" className="bg-gray-100"
+                                        value={name} onChange={(e) => setName(e.target.value)} />
                                 </div>
-                                <div className='space-y-2'>
-                                    <label htmlFor='email' className='text-sm font-medium'>
+                                <div className="space-y-2">
+                                    <label htmlFor="email" className="text-sm font-medium">
                                         Email
                                     </label>
-                                    <Input id='email' name='email' placeholder='jhon578@example.com' required className='bg-gray-100' />
+                                    <Input id="email" name="email" type="email" placeholder="john578@example.com" className="bg-gray-100"
+                                        value={email} onChange={(e) => setEmail(e.target.value)} />
                                 </div>
                             </div>
-                            <div className='space-y-2 w-full'>
-                                <label htmlFor='subject' className='text-sm font-medium'>
+                            <div className="space-y-2">
+                                <label htmlFor="subject" className="text-sm font-medium">
                                     Subject
                                 </label>
-                                <Input id='subject' name='subject' placeholder='Project Enqiury' required className='bg-gray-100' />
+                                <Input id="subject" name="subject" placeholder="Project Enquiry" className="bg-gray-100"
+                                    value={subject} onChange={(e) => setSubject(e.target.value)} />
                             </div>
-                            <div className=' space-y-2'>
-                                <label htmlFor='message' className='text-sm font-medium'>
+                            <div className="space-y-2">
+                                <label htmlFor="message" className="text-sm font-medium">
                                     Message
                                 </label>
-                                <Textarea id='message' name='message' placeholder='Tell me about your project....' rows={5} required
-                                    className='bg-gray-100 h-40' />
+                                <Textarea id="message" name="message" placeholder="Tell me about your project..." rows={5} className="bg-gray-100 h-40"
+                                    value={message} onChange={(e) => setMessage(e.target.value)} />
                             </div>
-                            <Button type='submit' size="lg" className='w-full cursor-pointer'>
-                                <Send className='w-4 h-4 mr-2 ' />
-                                Send Message
+                            {error && (
+                                <p className="text-red-500 text-sm">
+                                    {error}
+                                </p>
+                            )}
+
+                            {success && (
+                                <div className="space-y-2">
+                                    <p className="text-green-500 font-medium">👍 Message sent successfully</p>
+                                    <div className="w-full h-1 bg-gray-300 rounded-full overflow-hidden">
+                                        <div className="h-full bg-green-500 transition-all duration-100" style={{
+                                            width: `${progress}%`,
+                                        }}
+                                        />
+                                    </div>
+                                </div>
+                            )}
+
+                            <Button type="submit" size="lg" className="w-full cursor-pointer" disabled={loading}>
+                                <Send className="w-4 h-4 mr-2" />
+                                {loading ? "Sending..." : "Send Message"}
                             </Button>
                         </form>
                     </div>
