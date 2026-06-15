@@ -8,7 +8,7 @@ const Logo = () => {
                 <LuCodeXml className='text-white w-6 h-6' />
             </div>
             <h1 className='sm:text-xl hidden sm:block md:text-2xl text-blue-800 dark:text-blue-400 font-bold'>
-                {"<Dev/>"}
+                {"<Sumrit.dev/>"}
             </h1>
         </div>
     )
