@@ -57,7 +57,7 @@ const Footer = () => {
                 {/* Credit */}
                 <p className="text-sm text-gray-300">
                     Build by Sumrit Singh.
-                    <span className="text-red-500">❤</span>
+
                 </p>
             </div>
 
