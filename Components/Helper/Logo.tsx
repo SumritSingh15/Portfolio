@@ -10,8 +10,6 @@ const Logo = () => {
             <h1 className='sm:text-xl hidden sm:block md:text-2xl text-blue-800 dark:text-blue-400 font-bold'>
                 {"<Dev/>"}
             </h1>
-
-
         </div>
     )
 }
